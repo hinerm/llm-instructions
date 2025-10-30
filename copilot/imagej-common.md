@@ -1,5 +1,7 @@
 # ImageJ Common - AI Coding Agent Instructions
 
+> **Related files**: Start with `scijava-foundation.md` for shared SciJava concepts. See `imglib2.md` for the underlying image data structures, and `scijava-common.md` for the plugin framework.
+
 ## Project Overview
 
 ImageJ Common is the core library for ImageJ2, providing:

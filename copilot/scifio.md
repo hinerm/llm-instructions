@@ -1,5 +1,7 @@
 # SCIFIO AI Coding Agent Instructions
 
+> **Related files**: Start with `scijava-foundation.md` for shared SciJava concepts. See `imglib2.md` for the image data structures that SCIFIO works with.
+
 ## Project Overview
 
 SCIFIO (SCientific Image Format Input & Output) is an extensible Java framework for reading and writing N-dimensional scientific images. This is a **plugin-based architecture** built on the SciJava framework that separates image I/O into modular, composable components.

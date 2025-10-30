@@ -1,5 +1,7 @@
 # Fiji Copilot Instructions
 
+> **Related files**: Start with `scijava-foundation.md` for shared concepts. See `imagej2.md` for the core application architecture. For Python integration, see `pyimagej.md`.
+
 ## Project Overview
 
 Fiji is a "batteries-included" distribution of ImageJ for life sciences—a scientific image processing application built on Java. This repository is the top-level project that **bundles** runtime plugins and manages releases, not a monolithic codebase.

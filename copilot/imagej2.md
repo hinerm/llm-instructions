@@ -1,5 +1,7 @@
 # ImageJ2 Development Guide for AI Agents
 
+> **Related files**: Start with `scijava-foundation.md` for shared concepts. See `imagej-common.md` for the data model, `imglib2.md` for image data structures, and `scijava-common.md` for the plugin framework details.
+
 ## Project Overview
 
 ImageJ2 is a **gateway aggregator** that bundles the complete ImageJ2 ecosystem. This repository contains minimal source code (only `src/main/java/net/imagej/{ImageJ.java, Main.java, app/ToplevelImageJApp.java}`) but coordinates a complex plugin-based architecture through Maven dependencies.

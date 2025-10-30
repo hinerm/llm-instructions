@@ -1,5 +1,7 @@
 # ImageJ Legacy Bridge - AI Coding Agent Instructions
 
+> **Related files**: See `imagej1.md` for original ImageJ architecture, `imagej-common.md` for ImageJ2 data model, `imglib2.md` for modern data structures, and `ij1-patcher.md` for bytecode patching details.
+
 ## Project Overview
 This is the **ImageJ Legacy Bridge** - a critical compatibility layer that enables backward compatibility between ImageJ2 (modern) and ImageJ 1.x (legacy). The bridge translates image data structures bidirectionally and wraps legacy plugins for execution in the modern framework.
 

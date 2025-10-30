@@ -1,5 +1,7 @@
 # ImageJ Ops Development Guide
 
+> **Related files**: Start with `scijava-foundation.md` for shared SciJava concepts. See `imglib2.md` for the data structures used in ops, and `imagej-common.md` for the ImageJ data model.
+
 ## Architecture Overview
 
 ImageJ Ops is a **plugin-based framework** for image processing algorithms using the **SciJava plugin system**. The key architectural pattern is that operations ("ops") are discovered at runtime and matched by name + parameter types (similar to Java method overloading).

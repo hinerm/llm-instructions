@@ -1,5 +1,7 @@
 # PyImageJ AI Coding Guidelines
 
+> **Related files**: For understanding the Java side, see `imagej2.md` (application), `imagej-common.md` (data model), and `imglib2.md` (image data structures). For Jython (in-JVM Python), see `scijava-scripting-python.md`.
+
 ## Project Overview
 
 PyImageJ is a Python wrapper for ImageJ2/ImageJ that bridges the Java and Python ecosystems. It uses **JPype** to spawn a JVM, **scyjava** for Java-Python interop, and **imglyb** for zero-copy image sharing via shared memory.

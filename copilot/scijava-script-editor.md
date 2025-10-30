@@ -1,5 +1,7 @@
 # SciJava Script Editor - AI Coding Agent Instructions
 
+> **Related files**: Start with `scijava-foundation.md` for shared SciJava concepts (plugin system, dependency injection, build patterns). See also `scijava-common.md` for detailed service architecture.
+
 ## Project Overview
 
 This is a Swing-based script editor and interpreter for SciJava applications, built on the SciJava plugin framework. It provides syntax highlighting, autocompletion, and execution capabilities for multiple scripting languages (Java, Groovy, JavaScript, Python, etc.).
