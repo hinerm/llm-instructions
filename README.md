@@ -40,6 +40,45 @@ Files are organized by the dev environment they were generated in:
 
 ## Usage
 
+### Automated Setup with init.sh
+
+The easiest way to add LLM instructions to your project is using the `init.sh` script:
+
+```bash
+./scripts/init.sh <target_project_path> <environment> <file_lists...>
+```
+
+**Arguments:**
+- `target_project_path`: Path to your project root where instructions will be created
+- `environment`: Either `copilot` (creates `.github/copilot-instructions.md`) or `claude` (creates `.clauderc`)
+- `file_lists`: One or more lists of markdown files to merge
+  - Format: `[directory:]file1,file2,file3`
+  - Directory defaults to `copilot` if not specified
+  - `.md` extension is optional
+  - Multiple lists can be space-separated
+
+**Examples:**
+
+```bash
+# Basic SciJava project
+./scripts/init.sh ~/my-scijava-project copilot scijava-foundation,scijava-common
+
+# ImageJ2 algorithm development
+./scripts/init.sh ~/my-imagej2-plugin copilot scijava-foundation,imglib2,imagej-common,imagej-ops
+
+# Multiple file lists (same as above)
+./scripts/init.sh ~/my-imagej2-plugin copilot copilot:scijava-foundation,imglib2 copilot:imagej-common,imagej-ops
+
+# For Claude Code
+./scripts/init.sh ~/my-project claude scijava-foundation,scijava-common
+```
+
+The script will merge all specified instruction files into the appropriate location for your chosen environment.
+
+### Manual Usage
+
+Alternatively, you can manually reference the instruction files:
+
 1. Clone this repository to a central location on your system
 2. When working on a project, reference the relevant instruction file(s) in your LLM context
 3. **Start with `scijava-foundation.md`** if working on any SciJava-based project
@@ -48,9 +87,12 @@ Files are organized by the dev environment they were generated in:
 ### Reducing Redundancy
 
 Many projects share common patterns (plugin system, dependency injection, build workflows). To avoid repetition:
+- Ask an LLM to clean up your merged instructions files
 - Load `copilot/scijava-foundation.md` once for shared concepts
 - Load only project-specific files for implementation details
 - Refer to INDEX.md for optimal file combinations
+
+**Furthermore**, as you likely will not need to these instrcuctions in EVERY instance, you can also rename the files and just include them in the conversations they are actually needed.
 
 ## Contributing
 
