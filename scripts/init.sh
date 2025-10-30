@@ -100,8 +100,12 @@ mkdir -p "$OUTPUT_DIR"
 info "Generating $ENVIRONMENT instructions at: $OUTPUT_FILE"
 echo ""
 
-# Create or truncate the output file
-> "$OUTPUT_FILE"
+# Track whether we found any files
+FOUND_ANY_FILES=false
+
+# Create a temporary file to collect content
+TEMP_FILE=$(mktemp)
+trap "rm -f $TEMP_FILE" EXIT
 
 # Process each file list
 for FILE_LIST in "${FILE_LISTS[@]}"; do
@@ -135,17 +139,27 @@ for FILE_LIST in "${FILE_LISTS[@]}"; do
             error "File not found: $FULL_PATH"
         fi
         
+        # Mark that we found at least one file
+        FOUND_ANY_FILES=true
+        
         info "  Adding: $DIR/$FILE"
         
-        # Append file contents to output
-        cat "$FULL_PATH" >> "$OUTPUT_FILE"
+        # Append file contents to temp file
+        cat "$FULL_PATH" >> "$TEMP_FILE"
         
         # Add a newline between files for separation
-        echo "" >> "$OUTPUT_FILE"
+        echo "" >> "$TEMP_FILE"
     done
 done
 
 echo ""
-success "✓ Successfully created $ENVIRONMENT instructions!"
-success "  Output: $OUTPUT_FILE"
-success "  Files merged: $(grep -c '^' "$OUTPUT_FILE") lines"
+
+# Only create the output file if we found any instruction files
+if [ "$FOUND_ANY_FILES" = true ]; then
+    mv "$TEMP_FILE" "$OUTPUT_FILE"
+    success "✓ Successfully created $ENVIRONMENT instructions!"
+    success "  Output: $OUTPUT_FILE"
+    success "  Files merged: $(grep -c '^' "$OUTPUT_FILE") lines"
+else
+    error "No instruction files were found. Output file not created."
+fi
