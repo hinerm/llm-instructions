@@ -5,7 +5,16 @@ Collections of instruction files built by and for LLMs
 
 These instructions are intended as starting points for LLM assistance when working with ImageJ, SciJava, and related projects. Each file contains domain-specific knowledge to help LLMs better understand project architecture, conventions, and common patterns.
 
+## Copilot use
+
+GitHub Copilot expects to see a `copilot-instructions.md` file in the `.github` folder of a project root. It has [formatting guidelines](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_use-a-githubcopilotinstructionsmd-file) and must be enabled in VS code.
+
+## WARNING
+
+Instructions files add text to each query and so should be used sparingly as they can quickly balloon your token usage.
+
 ## Quick Start
+
 
 **See [INDEX.md](INDEX.md)** for a comprehensive guide to which files to use for different tasks.
 
